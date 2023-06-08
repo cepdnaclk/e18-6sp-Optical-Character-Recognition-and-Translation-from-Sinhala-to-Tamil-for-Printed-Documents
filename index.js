@@ -1,11 +1,9 @@
 const express=require('express');
 const app = express();
 const multer=require('multer');
-const fs= require('fs-extra');
+const preprocess_mod=require('./preprocess');
+const ocr_mod=require('./ocr');
 const translate_mod=require('./translate');
-
-const { createWorker } =require('tesseract.js')
-
 
 //storing images to disk
 const storage=multer.diskStorage({
@@ -22,33 +20,16 @@ const upload=multer({storage:storage})
 app.post('/api/upload',upload.single('uploadedImage'),async (req,res)=>{
     console.log(req.file);
     try {
-        const worker = await createWorker(
-            {logger: m => console.log(m)}
-        );
-
-        await worker.loadLanguage('sin');
-        await worker.initialize('sin');
-        await worker.setParameters({
-            tessedit_ocr_engine_mode:2,
-            tessedit_pageseg_mode:6,
-            
-        })
-        await worker.recognize(
-            'tmp/uploads/'+req.file.filename,            
-        ).then(({data:{text}})=>{
-            try {
-               fs.writeFileSync('tmp/results/'+req.file.filename.split(".")[0]+".txt",text,{flag:'w'});
-               translate_mod.translateText('tmp/results/'+req.file.filename.split(".")[0]+".txt")
-            } catch (error) {
-                console.log(error);
-            }
-            return res.json(
-                {
-                    message:text
-                }
-            )
-        })
-        await worker.terminate();
+        preprocess_mod.preprocess_image(req.file.filename)
+            .then( img_buffer => {
+                return ocr_mod.ocr_extract(img_buffer);                   
+            }).then( text =>{
+                return translate_mod.translateText(text);
+            }).then( translated_text => {
+                return res.json({
+                        message:translated_text
+                });
+            })       
     } catch (error) {
         console.error(error);
     }
@@ -57,3 +38,4 @@ app.post('/api/upload',upload.single('uploadedImage'),async (req,res)=>{
 app.listen(4000,()=>{
     console.log("Server is running on port 4000");
 })
+//issue with github update
