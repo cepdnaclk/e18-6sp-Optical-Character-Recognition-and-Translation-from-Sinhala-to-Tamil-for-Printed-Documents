@@ -3,14 +3,14 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-XXX-project-template
-title:
+repository-name: e18-6sp-Optical-Character-Recognition-and-Translation-from-Sinhala-to-Tamil-for-Printed-Documents
+title: Optical Character Recognition and Translation from Sinhala to Tamil for Printed Documents
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
 # Project Title
-
+Optical Character Recognition and Translation from Sinhala to Tamil for Printed Documents
 ---
 
 This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
@@ -19,9 +19,9 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/18/245, Nishani K., [email](mailto:e18245@eng.pdn.ac.lk)
+-  E/18/340, Subramanieam V., [email](mailto:e18340@eng.pdn.ac.lk)
+-  E/18/366, Thulasiyan Y., [email](mailto:e18366@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)
