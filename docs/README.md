@@ -13,7 +13,7 @@ title: Optical Character Recognition and Translation from Sinhala to Tamil for P
 Optical Character Recognition and Translation from Sinhala to Tamil for Printed Documents
 ---
 
-This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
+<!-- This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/) -->
 
 <!-- ![Sample Image](./images/sample.png) -->
 
