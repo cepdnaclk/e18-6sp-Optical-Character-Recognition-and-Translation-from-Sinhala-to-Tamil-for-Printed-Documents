@@ -3,25 +3,25 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-XXX-project-template
-title:
+repository-name: e18-6sp-Optical-Character-Recognition-and-Translation-from-Sinhala-to-Tamil-for-Printed-Documents
+title: Optical Character Recognition and Translation from Sinhala to Tamil for Printed Documents
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
 # Project Title
-
+Optical Character Recognition and Translation from Sinhala to Tamil for Printed Documents
 ---
 
-This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
+<!-- This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/) -->
 
-![Sample Image](./images/sample.png)
+<!-- ![Sample Image](./images/sample.png) -->
 
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/18/245, Nishani K., [email](mailto:e18245@eng.pdn.ac.lk)
+-  E/18/340, Subramanieam V., [email](mailto:e18340@eng.pdn.ac.lk)
+-  E/18/366, Thulasiyan Y., [email](mailto:e18366@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -32,7 +32,16 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Introduction
 
- description of the real world problem and solution, impact
+
+The problem domain involves a language barrier gap between Sinhala and Tamil, with limited resources available for translating printed documents from Sinhala to Tamil. This presents challenges in accurately translating content due to significant linguistic differences. The scarcity of tools and trained translators in this language pair exacerbates the issue. Moreover, the translation process is costly and time-consuming, requiring manual translation and attention to detail. Addressing this problem necessitates bridging the language gap, increasing translation resources, and exploring more efficient workflows.
+
+The solution can be achieved by several steps
+- Preprocess the printed document for OCR by ensuring good image quality.
+- Enhance the image to improve its quality.
+- Extract the text using OCR algorithms.
+- Translate the extracted Sinhala text to Tamil using a machine translation system.
+- Perform post-processing to clean up the translated text.
+- Generate the translated text in the desired output format.
 
 ## Other Sub Topics
 
