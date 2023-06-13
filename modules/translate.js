@@ -7,7 +7,7 @@ async function translateText(srcfile){
         try {
             translate(srcfile,{from:'si', to:'ta'}
             ).then(res =>{
-                fs.writeFileSync('new.txt',res.text,{encoding:'utf8',flag:'w'});
+                fs.writeFileSync('../tmp/translations/translation.txt',res.text,{encoding:'utf8',flag:'w'});
                 resolve(res.text)
             })
         } catch (error) {

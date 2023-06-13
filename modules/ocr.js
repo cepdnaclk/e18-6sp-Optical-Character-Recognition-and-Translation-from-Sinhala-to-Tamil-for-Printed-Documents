@@ -23,7 +23,7 @@ async function ocr_extract(srcfile){
                 srcfile,
             ).then(({data:{text}})=>{
                 try {
-                    fs.writeFileSync('tmp/ocr_results/'+'ocr'+".txt",text,{flag:'w'});
+                    fs.writeFileSync('../tmp/ocr_results/'+'ocr'+".txt",text,{flag:'w'});
                 //    fs.writeFileSync('tmp/ocr_results/'+srcfile.file.filename.split(".")[0]+".txt",text,{flag:'w'});
                 //    translate_mod.translateText(srcfile.file.filename.split(".")[0]+".txt")
                 } catch (error) {

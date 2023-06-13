@@ -3,7 +3,7 @@ const sharp =require('sharp');
 
 async function preprocess_image(srcfile){
 
-    const input_img='tmp/uploads/'+srcfile;
+    const input_img='../tmp/uploads/'+srcfile;
     try {
         const img_buffer=await sharp(input_img)
             .grayscale()
