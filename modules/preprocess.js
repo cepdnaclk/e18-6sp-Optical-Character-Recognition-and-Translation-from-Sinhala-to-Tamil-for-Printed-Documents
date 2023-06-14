@@ -8,6 +8,7 @@ async function preprocess_image(srcfile){
         const img_buffer=await sharp(input_img)
             .grayscale()
             .normalize()
+            .median(3)
             .blur(0.5)//denoising image through blur operation
             .sharpen()
             .gamma(2)
