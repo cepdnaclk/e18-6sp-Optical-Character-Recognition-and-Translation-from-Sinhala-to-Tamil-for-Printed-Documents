@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Document, Page } from 'react-pdf';
-import { PDFDocument } from 'pdf-lib';
-// import './FileUpload.css'
+import { Image } from 'pdf-lib';
 
-function FileUpload() {
+function ImageFileUpload() {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -15,17 +13,12 @@ function FileUpload() {
       const fileReader = new FileReader();
 
       fileReader.onload = async () => {
-        const typedArray = new Uint8Array(fileReader.result);
-        const pdfDoc = await PDFDocument.load(typedArray);
-
-        const page = await pdfDoc.getPage(0);
-        const text = await page.getText();
-        const firstLetter = text.trim().charAt(0);
-
-        console.log('First letter:', firstLetter);
+        const imageData = fileReader.result;
+        // Perform operations with the image data
+        console.log('Image data:', imageData);
       };
 
-      fileReader.readAsArrayBuffer(selectedFile);
+      fileReader.readAsDataURL(selectedFile);
     }
   };
 
@@ -40,18 +33,14 @@ function FileUpload() {
     maxWidth: '600px', // Set the maximum width of the div
     margin: '20px auto' // Center the div horizontally within its parent container
   };
-  
 
   return (
     <div style={containerStyle}>
-      <label htmlFor="pdfInput" style={{ marginRight: '10px' }}>PDF File Input:</label>
-      <input id="pdfInput" type="file" accept=".pdf" onChange={handleFileChange} />
+        <label htmlFor="imgInput" style={{ marginRight: '10px' }}>Image File Input:</label>
+      <input id ="imgInput" type="file" accept="image/*" onChange={handleFileChange} />
       <button onClick={handleUpload}>Translate</button>
     </div>
   );
-  
-  
-  
 }
 
-export default FileUpload;
+export default ImageFileUpload;
