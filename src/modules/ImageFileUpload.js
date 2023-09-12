@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Image } from 'pdf-lib';
 
 function ImageFileUpload() {
+
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -24,14 +25,14 @@ function ImageFileUpload() {
 
   const containerStyle = {
     display: 'flex',
-    justifyContent: 'center', // Center horizontally
-    alignItems: 'center', // Center vertically
+    justifyContent: 'center',
+    alignItems: 'center', 
     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
     borderRadius: '8px',
     padding: '16px',
     backgroundColor: '#ffffff',
-    maxWidth: '600px', // Set the maximum width of the div
-    margin: '20px auto' // Center the div horizontally within its parent container
+    maxWidth: '600px',
+    margin: '20px auto'
   };
 
   return (
