@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Image } from 'pdf-lib';
+import axios from 'axios';
+
+
 
 function ImageFileUpload() {
 
@@ -14,12 +16,26 @@ function ImageFileUpload() {
       const fileReader = new FileReader();
 
       fileReader.onload = async () => {
-        const imageData = fileReader.result;
+        const uploadedImage = fileReader.result;
         // Perform operations with the image data
-        console.log('Image data:', imageData);
+        // console.log('Image data:', imageData);
+        try {
+
+            const response = await axios.post(`http://localhost:4000/upload`,uploadedImage);
+    
+          if (response.ok) {
+            console.log("File uploaded successfully");
+          } else {
+            console.error("File upload failed");
+          }
+          } catch (error) {
+            console.error("Network error:", error);
+          }
+          
       };
 
-      fileReader.readAsDataURL(selectedFile);
+      
+      
     }
   };
 
