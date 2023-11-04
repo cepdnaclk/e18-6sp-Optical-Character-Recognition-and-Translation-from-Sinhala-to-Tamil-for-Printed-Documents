@@ -1,71 +1,55 @@
 import React, { useState } from 'react';
-import { PDFDocument } from 'pdf-lib';
 import axios from "axios";
 
+
+// import './FileUpload.css'
+
 function FileUpload() {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState("");
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
 
   const handleUpload = async () => {
-    if (selectedFile) {
-      const fileReader = new FileReader();
+    
 
-      fileReader.onload = async () => {
-        const typedArray = new Uint8Array(fileReader.result);
-        const pdfDoc = await PDFDocument.load(typedArray);
+      const formData = new FormData();
+      formData.append("uploadedPdf", selectedFile);
 
-        if (!pdfDoc) {
-          console.error("PDF document not loaded correctly");
-          return;
-        }
+      try {
 
-        const page = await pdfDoc.getPage(0);
-        const text = await page.getText();
-        const firstLetter = text.trim().charAt(0);
+        const response = await axios.post(`http://localhost:4000/api/upload`, formData);
 
-        console.log("First letter:", firstLetter);
-
-        const formData = new FormData();
-        formData.append("pdfFile", selectedFile);
-
-        try {
-
-          const response = await axios.post(`http://localhost:4000/api/upload`, formData);
-
-          if (response.ok) {
-            console.log("File uploaded successfully");
-          } else {
-            console.error("File upload failed");
-          }
-        } catch (error) {
-          console.error("Network error:", error);
-        }
-
-      };
-
-      fileReader.readAsArrayBuffer(selectedFile);
+      if (response.ok) {
+        console.log("File uploaded successfully");
+      } else {
+        console.error("File upload failed");
+      }
+      } catch (error) {
+        console.error("Network error:", error);
+      }
+      
+      
     }
-  };
+  
 
   const containerStyle = {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center', 
+    justifyContent: 'center', // Center horizontally
+    alignItems: 'center', // Center vertically
     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
     borderRadius: '8px',
     padding: '16px',
     backgroundColor: '#ffffff',
-    maxWidth: '600px', 
-    margin: '20px auto'
+    maxWidth: '600px', // Set the maximum width of the div
+    margin: '0 auto' // Center the div horizontally within its parent container
   };
+  
 
   return (
     <div style={containerStyle}>
-      <label htmlFor="pdfInput" style={{ marginRight: '10px' }}>PDF File Input:</label>
-      <input id="pdfInput" type="file" accept="" onChange={handleFileChange} />
+      <input type="file" accept=".pdf" onChange={handleFileChange} required/>
       <button onClick={handleUpload}>Translate</button>
     </div>
   );
