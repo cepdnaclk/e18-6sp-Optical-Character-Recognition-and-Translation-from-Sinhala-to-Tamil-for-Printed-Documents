@@ -4,21 +4,26 @@
   "description": "___\r # Optical Character Recognition & Translation from Sinhala to Tamil for Printed Documents\r ___",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js && node translate.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@iamtraction/google-translate": "github:iamtraction/google-translate",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
     "fs-extra": "^11.1.1",
     "multer": "^1.4.5-lts.1",
+    "pdf-img-convert": "^1.2.1",
+    "pdf-poppler": "^0.2.1",
+    "pdfjs-dist": "^3.7.107",
+    "pdfkit": "^0.13.0",
     "sharp": "^0.32.1",
     "tesseract.js": "^4.0.6"
   },
   "directories": {
     "doc": "docs"
-  },
-  "devDependencies": {}
+  }
 }
